@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Robot en Pista — Fase 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="row">
+            <button id="btnReiniciar" class="btn">Reiniciar</button>
+            <button id="btnConfig" class="btn">Configurar</button>
+        </div>
+
+    </header>
+
+    <main class="layout">
+        <!-- TABLERO -->
+        <section class="panel">
+            <div id="board" class="board">
+                <div id="grid" class="grid"></div>
+                <img id="robot" class="robot"
+                    src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?> <svg xmlns='http://www.w3.org/2000/svg' width='58' height='58' viewBox='0 0 64 64'><g fill='%23fbbf24'><rect x='18' y='18' width='28' height='28' rx='6' ry='6'/><rect x='28' y='8' width='8' height='10' rx='2'/><rect x='12' y='28' width='6' height='8' rx='2'/><rect x='46' y='28' width='6' height='8' rx='2'/></g><circle cx='28' cy='32' r='4' fill='%23000000'/><circle cx='36' cy='32' r='4' fill='%23000000'/></svg>"
+                    alt="robot" />
+            </div>
+        </section>
+
+        <!-- LATERAL -->
+        <aside class="panel sidebar">
+            <h3 id="panelTitle">Movimientos</h3>
+            <div class="row" id="programChips"></div>
+            <p id="cfgHint" class="hint" style="display:none">
+                En modo Configurar, haz clic en las celdas para (des)marcarlas en verde.
+                La primera celda verde será el punto de inicio.
+            </p>
+            <div id="message" class="msg"></div>
+        </aside>
+
+        <div class="row" id="controls">
+            <button class="btn" data-cmd="Adelante">Adelante</button>
+            <button class="btn" data-cmd="Girar Izquierda">Girar Izq</button>
+            <button class="btn" data-cmd="Girar Derecha">Girar Der</button>
+            <button class="btn" data-cmd="Bucle Inicio">Bucle ⟲ INICIO</button>
+            <button class="btn" data-cmd="Bucle Fin">Bucle ⟲ FIN</button>
+            <button id="btnRun" class="btn primary">Ejecutar</button>
+        </div>
+
+        <div class="row" id="fileButtons">
+            <button id="btnArchivo" class="btn">Cargar desde archivo</button>
+            <button id="btnExport" class="btn">Exportar archivo</button>
+        </div>
+
+        <!-- BOTONES INFERIORES -->
+
+        <div id="Config-Buttons" class="row">
+            <button id="btnClear" class="btn">Limpiar lista</button>
+            <button id="btnSaveTrack" class="btn">Guardar pista</button>
+            <button id="btnRandom" class="btn">Pista aleatoria</button>            
+        </div>
+    </main>
+
+    <footer class="footer">
+        Tablero
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

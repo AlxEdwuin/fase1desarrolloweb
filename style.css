@@ -1,0 +1,71 @@
+:root{
+  /* 4 filas x 5 columnas */
+  --rows: 4;
+  --cols: 5;
+  --cell: 100px;
+  --turn-ms: 400ms;
+  --step-ms: 600ms;
+}
+*{ box-sizing: border-box; }
+body{ margin:0; font-family: system-ui, Arial, sans-serif; background:#ffffff; color:#0b1220; }
+
+.topbar{
+  display:flex; gap:12px; align-items:center; justify-content:space-between;
+  padding:10px 12px; background:#f5f6f8; border-bottom:1px solid #e5e7eb;
+}
+.btn{
+  background:#0b1220; color:#ffffff; border:1px solid #0b1220;
+  padding:6px 10px; border-radius:8px; cursor:pointer;
+}
+.btn:hover{ filter:brightness(0.95); }
+.btn.primary{ background:#2563eb; border-color:#2563eb; }
+
+.layout{ display:grid; grid-template-columns:auto 300px; gap:16px; padding:16px; }
+.panel{
+  background:#ffffff; border:1px solid #e5e7eb; border-radius:12px; padding:12px;
+}
+
+.board{
+  position:relative;
+  width: calc(var(--cols) * var(--cell));
+  height: calc(var(--rows) * var(--cell));
+  background:#ffffff;          /* fondo blanco */
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  overflow:hidden;
+}
+.grid{
+  position:absolute; inset:0;
+  display:grid;
+  grid-template-columns: repeat(var(--cols), var(--cell));
+  grid-auto-rows: var(--cell);
+}
+.cell{
+  border:1px solid #e5e7eb;
+  background:#ffffff;          
+  transition: background 120ms ease;
+  cursor:pointer;
+}
+/* La pista (ruta válida) se marca en verde */
+.cell.valid{ background:#16a34a33; }
+
+.robot{
+  position:absolute; width:58px; height:58px; pointer-events:none; z-index:2;
+  transform-origin:center center;
+  transition: transform var(--turn-ms) ease-in-out;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+}
+
+.sidebar h3{ margin:8px 0 10px; font-weight:600; }
+.chip{
+  font-size:12px; padding:4px 8px; border-radius:999px;
+  background:#eef2ff; border:1px solid #c7d2fe; color:#1e293b; margin:2px; display:inline-block;
+}
+.msg{ margin-top:10px; padding:10px; border-radius:8px; display:none; }
+.msg.show{ display:block; }
+.hint{ font-size:12px; color:#6b7280; }
+.footer{ padding:8px 16px; font-size:12px; color:#6b7280; }
+
+#Config-Buttons{
+    display: none;
+}
