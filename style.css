@@ -69,3 +69,71 @@ body{ margin:0; font-family: system-ui, Arial, sans-serif; background:#ffffff; c
 #Config-Buttons{
     display: none;
 }
+
+.container {
+  max-width: 900px;
+  margin: 2em auto;
+  background: #222;
+  color: #eee;
+  padding: 1.5em;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #444;
+  padding: 0.5em;
+  text-align: left;
+}
+
+th {
+  background-color: #333;
+}
+
+.btn {
+  border: none;
+  padding: 5px 10px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-success { background-color: #28a745; color: white; }
+.btn-warning { background-color: #ffc107; color: black; }
+.btn-danger { background-color: #dc3545; color: white; }
+.btn-secondary { background-color: #6c757d; color: white; }
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.modal.hidden {
+  display: none;
+}
+.modal-content {
+  background: #222;
+  color: #fff;
+  padding: 1.5em;
+  border-radius: 10px;
+  max-width: 900px;
+  width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+}
+.modal-actions {
+  text-align: right;
+  margin-top: 1em;
+}

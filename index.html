@@ -13,9 +13,8 @@
     <header class="topbar">
         <div class="row">
             <button id="btnReiniciar" class="btn">Reiniciar</button>
-            <button id="btnConfig" class="btn">Configurar</button>
+            <button id="btnConfig" class="btn">Configurar</button>            
         </div>
-
     </header>
 
     <main class="layout">
@@ -59,7 +58,9 @@
         <div id="Config-Buttons" class="row">
             <button id="btnClear" class="btn">Limpiar lista</button>
             <button id="btnSaveTrack" class="btn">Guardar pista</button>
-            <button id="btnRandom" class="btn">Pista aleatoria</button>            
+            <button id="btnRandom" class="btn">Pista aleatoria</button>
+            <button id="btnUsers" onclick="window.location.href='usuarios.html'" class="btn btn-info">Gestionar Administradores</button>
+            <button id="btnLogs" onclick="window.location.href='bitacora.html'" class="btn btn-secondary">Ver Bitácora</button>
         </div>
     </main>
 
@@ -67,7 +68,96 @@
         Tablero
     </footer>
 
+    <!-- Modal de inicio de sesión -->
+    <div id="loginModal" style="
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+  display: none; align-items: center; justify-content: center; z-index: 9999;
+">
+        <div style="
+    background: #fff; border-radius: 12px; padding: 20px; width: 300px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  ">
+            <h3 style="margin-top: 0;">Iniciar sesión</h3>
+            <label for="loginUser">Usuario:</label>
+            <input id="loginUser" type="text" class="form-control" style="width:100%;margin-bottom:10px;">
+            <label for="loginPass">Contraseña:</label>
+            <input id="loginPass" type="password" class="form-control" style="width:100%;margin-bottom:10px;">
+            <div style="display:flex;justify-content:flex-end;gap:10px;">
+                <button id="btnLoginCancel" class="btn">Cancelar</button>
+                <button id="btnLoginOk" class="btn primary">Entrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de selección de pista para exportar -->
+    <div id="exportModal" style="
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+  display: none; align-items: center; justify-content: center; z-index: 9999;
+">
+        <div style="
+    background: #fff; border-radius: 12px; padding: 20px; width: 300px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  ">
+            <h3 style="margin-top: 0;">Seleccionar pista para exportar</h3>
+            <select id="exportSelect" class="form-control" style="width:100%;margin-bottom:10px;">
+                <option value="">Cargando...</option>
+            </select>
+            <div style="display:flex;justify-content:flex-end;gap:10px;">
+                <button id="btnExportCancel" class="btn">Cancelar</button>
+                <button id="btnExportOk" class="btn primary">Exportar</button>
+            </div>
+        </div>
+    </div>
+
+     <!-- 📋 Modal Usuarios -->
+    <div id="modalUsuarios" class="modal hidden">
+      <div class="modal-content">
+        <h3>Gestión de Usuarios Administradores</h3>
+        <form id="formAdmin">
+          <input type="hidden" id="adminId">
+          <label>Usuario:</label>
+          <input type="text" id="username" required>
+          <label>Contraseña:</label>
+          <input type="password" id="password" required>
+          <label>Estado:</label>
+          <select id="enabled">
+            <option value="true">Activo</option>
+            <option value="false">Inactivo</option>
+          </select>
+          <div class="modal-actions">
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="button" id="cancelar" class="btn btn-secondary">Cancelar</button>
+          </div>
+        </form>
+
+        <table id="tblAdmins" class="table">
+          <thead>
+            <tr><th>ID</th><th>Usuario</th><th>Estado</th><th>Acciones</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 📜 Modal Bitácora -->
+    <div id="modalBitacora" class="modal hidden">
+      <div class="modal-content">
+        <h3>Histórico de Acciones</h3>
+        <table id="tblBitacora" class="table">
+          <thead>
+            <tr><th>Fecha</th><th>Usuario</th><th>Acción</th><th>Detalles</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div class="modal-actions">
+          <button id="closeBitacora" class="btn btn-secondary">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <script src="script.js"></script>
+
 </body>
 
 </html>
