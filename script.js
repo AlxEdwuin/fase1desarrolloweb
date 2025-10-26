@@ -32,9 +32,9 @@ const panelTitle=document.getElementById('panelTitle');
 const controls=document.getElementById('controls');
 
 /* ======= API base del backend ======= */
-const API_BASE = "http://localhost:8080/api";
+const API_BASE = "https://proyecto-backend-wm5z.onrender.com/api";
 const ADMIN_USER = "admin";
-const ADMIN_PASS = "admin123";
+const ADMIN_PASS = "admin";
 const AUTH_HEADER = "Basic " + btoa(`${ADMIN_USER}:${ADMIN_PASS}`);
 let currentUser = null;
 let authHeader = null;
